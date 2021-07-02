@@ -1,6 +1,17 @@
-import sqlalchemy, json, requests, os
+import sqlalchemy, json, requests, os, matplotlib
 from sqlalchemy import create_engine 
 import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    'length': [1.5, 0.5, 1.2, 0.9, 3, 3],
+    'width': [2.5, 0.5, 1.2, 0.9, 3, 3]
+})
+
+# create a method for visualization
+def histogram(dataframe, column_name):
+    dataframe.hist(column=column_name) # create the histogram
+    plt.show()
 
 def pullDataFromAPIintoPandasDF():
   col_names = ['Title', 'Author']
@@ -63,11 +74,12 @@ if __name__ == "__main__":
     table_name = "new_stories"
     filename = "storylines.sql"
   
-    df = pullDataFromAPIintoPandasDF()
-    saveDatasetToFile(database_name, table_name, filename, df)
+    #df = pullDataFromAPIintoPandasDF()
+    #saveDatasetToFile(database_name, table_name, filename, df)
     
-    df = loadDataset(database_name, table_name, filename)
-    saveDatasetToFile(database_name, table_name, filename, df)
+    #df = loadDataset(database_name, table_name, filename)
+    #saveDatasetToFile(database_name, table_name, filename, df)
     
+    #histogram(df, 'Width')
     
     
