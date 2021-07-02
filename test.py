@@ -67,7 +67,10 @@ def loadDataset(database_name, table_name, filename, update=False):
         return loadNewData(df)
     else:
         return df
-    
+
+def add(a, b):
+    return a + b
+  
 # Main function
 if __name__ == "__main__":
     database_name = "articles"
